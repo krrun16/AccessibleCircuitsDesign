@@ -113,6 +113,7 @@ public class ProjectExplorer extends JTree implements LocaleListener {
 					((JLabel) ret).setText(tool.getDisplayName());
 					((JLabel) ret).setIcon(new ToolIcon(tool));
 					((JLabel) ret).setToolTipText(tool.getDescription());
+					//((JLabel) ret).setToolTipText(tool.getDisplayName());
 				}
 			} else if (value instanceof ProjectExplorerLibraryNode) {
 				ProjectExplorerLibraryNode libNode = (ProjectExplorerLibraryNode) value;
