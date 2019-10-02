@@ -55,6 +55,8 @@ import com.cburch.logisim.proj.ProjectListener;
 import com.cburch.logisim.tools.Tool;
 import com.cburch.logisim.util.InputEventUtil;
 
+import javax.accessibility.AccessibleContext;
+
 class LayoutToolbarModel extends AbstractToolbarModel {
 	private class MyListener implements ProjectListener, AttributeListener,
 			ToolbarData.ToolbarListener, PropertyChangeListener {
@@ -122,7 +124,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 		}
 
 		public String getToolTip() {
-			String ret = tool.getDescription();
+			String ret = /*tool.getDescription();*/ tool.getDisplayName();
 			int index = 1;
 			for (ToolbarItem item : items) {
 				if (item == this)
