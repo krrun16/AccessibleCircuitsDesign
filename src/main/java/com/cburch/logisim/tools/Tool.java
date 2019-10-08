@@ -43,11 +43,16 @@ import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeDefaultProvider;
 import com.cburch.logisim.data.AttributeSet;
 import com.cburch.logisim.gui.main.Canvas;
+import com.cburch.logisim.util.Icons;
+
+import javax.accessibility.Accessible;
+import javax.accessibility.AccessibleContext;
+import javax.swing.*;
 
 //
 // DRAWING TOOLS
 //
-public abstract class Tool implements AttributeDefaultProvider {
+public abstract class Tool extends JComponent implements AttributeDefaultProvider, Accessible {
 	private static Cursor dflt_cursor = Cursor
 			.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 
@@ -140,6 +145,15 @@ public abstract class Tool implements AttributeDefaultProvider {
 	@Override
 	public String toString() {
 		return getName();
+	}
+
+	public AccessibleContext getAccessibleContext(){
+		if (accessibleContext == null)
+			accessibleContext = new AccessibleTools();
+		return null;
+	}
+	protected class AccessibleTools extends AccessibleJComponent{
+
 	}
 
 }
