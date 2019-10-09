@@ -32,3 +32,15 @@ Walk through the elements inside menu using arrow key / alt + _
 LHS middle column (where you find Wiring, Gates, Plexers … ) hover on them and they will be read out
 
 LHS lower column using arrow key and navigate the cells (starting pt needed). Info will be read out.
+
+
+
+Note for 10/9/19
+Icons and tools
+There exists a MouseOption class where actions will be performed once mouse is clicked or pressed
+
+Inside the class MouseOption, the variable curTool is a Tool interface that does not implement Accessibility 
+
+
+Circuits
+Class ProjectCircuitActions
