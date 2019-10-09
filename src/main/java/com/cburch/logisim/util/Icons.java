@@ -37,7 +37,6 @@ import java.awt.Image;
 import java.net.URL;
 
 import javax.accessibility.Accessible;
-//import javax.accessibility.AccessibleContext;
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
 
@@ -68,7 +67,7 @@ public class Icons extends JComponent implements Accessible {
 		//icon.setToolTipText()
 		return icon;
 	}
-/*
+
 	public AccessibleContext getAccessibleContext() {
 		if (accessibleContext == null) {
 			accessibleContext = new AccessibleIcons();
@@ -78,7 +77,7 @@ public class Icons extends JComponent implements Accessible {
 
 	protected class AccessibleIcons extends AccessibleJComponent {
 
-	}*/
+	}
 
 
 	public static void paintRotated(Graphics g, int x, int y, Direction dir,
