@@ -37,13 +37,20 @@ import java.awt.Composite;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
 import com.cburch.draw.toolbar.ToolbarItem;
+import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.gui.menu.LogisimMenuItem;
 import com.cburch.logisim.prefs.AppPreferences;
+import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.tools.EditTool;
+import com.cburch.logisim.tools.PokeTool;
+import com.cburch.logisim.tools.TextTool;
 import com.cburch.logisim.util.Icons;
+import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.StringGetter;
 
 class LogisimToolbarItem extends JComponent implements ToolbarItem {
@@ -51,6 +58,26 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 	private Icon icon;
 	private LogisimMenuItem action;
 	private StringGetter toolTip;
+	private PokeTool poke;
+	private JFrame parent;
+	//private LogisimMenuBar.MyListener listener;
+	private Project proj;
+	private EditTool edit;
+	private TextTool text;
+	//private
+
+
+	public LogisimToolbarItem(JFrame parent, Project proj) {
+		this.parent = parent;
+		//this.listener = new LogisimMenuBar.MyListener();
+		this.proj = proj;
+		poke = new PokeTool();
+		poke.setMnemonic(KeyEvent.VK_V);
+		//edit = new EditTool();
+		text = new TextTool();
+		text.setMnemonic(KeyEvent.VK_0);
+
+	}
 
 	public LogisimToolbarItem(MenuListener menu, String iconName,
 			LogisimMenuItem action, StringGetter toolTip) {
