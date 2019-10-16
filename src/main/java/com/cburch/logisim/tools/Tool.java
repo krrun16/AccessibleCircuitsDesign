@@ -52,7 +52,7 @@ import javax.swing.*;
 //
 // DRAWING TOOLS
 //
-public abstract class Tool extends JComponent implements AttributeDefaultProvider, Accessible {
+public abstract class Tool extends JMenuItem implements AttributeDefaultProvider, Accessible {
 	private static Cursor dflt_cursor = Cursor
 			.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 
