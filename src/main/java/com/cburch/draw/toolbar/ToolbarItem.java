@@ -30,6 +30,8 @@
 
 package com.cburch.draw.toolbar;
 
+import javax.accessibility.Accessible;
+import javax.swing.*;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
