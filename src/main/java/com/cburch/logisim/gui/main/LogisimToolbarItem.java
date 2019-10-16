@@ -67,7 +67,7 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 	//private
 
 
-	public LogisimToolbarItem(JFrame parent, Project proj) {
+	/*public LogisimToolbarItem(JFrame parent, Project proj) {
 		this.parent = parent;
 		//this.listener = new LogisimMenuBar.MyListener();
 		this.proj = proj;
@@ -77,7 +77,7 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 		text = new TextTool();
 		text.setMnemonic(KeyEvent.VK_0);
 
-	}
+	}*/
 
 	public LogisimToolbarItem(MenuListener menu, String iconName,
 			LogisimMenuItem action, StringGetter toolTip) {
@@ -85,6 +85,14 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 		this.icon = Icons.getIcon(iconName);
 		this.action = action;
 		this.toolTip = toolTip;
+		this.parent = parent;
+		//this.listener = new LogisimMenuBar.MyListener();
+		this.proj = proj;
+		poke = new PokeTool();
+		poke.setMnemonic(KeyEvent.VK_V);
+		//edit = new EditTool();
+		text = new TextTool();
+		text.setMnemonic(KeyEvent.VK_0);
 	}
 
 	public void doAction() {
