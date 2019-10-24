@@ -85,14 +85,14 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 		this.icon = Icons.getIcon(iconName);
 		this.action = action;
 		this.toolTip = toolTip;
-		this.parent = parent;
+		/*this.parent = parent;
 		//this.listener = new LogisimMenuBar.MyListener();
 		this.proj = proj;
 		poke = new PokeTool();
 		poke.setMnemonic(KeyEvent.VK_V);
 		//edit = new EditTool();
 		text = new TextTool();
-		text.setMnemonic(KeyEvent.VK_0);
+		text.setMnemonic(KeyEvent.VK_0);*/
 	}
 
 	public void doAction() {
