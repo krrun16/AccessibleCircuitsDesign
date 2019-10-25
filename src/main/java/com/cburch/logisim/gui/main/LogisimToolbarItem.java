@@ -58,12 +58,12 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 	private Icon icon;
 	private LogisimMenuItem action;
 	private StringGetter toolTip;
-	private PokeTool poke;
+	private PokeTool poke = new PokeTool();
 	private JFrame parent;
 	//private LogisimMenuBar.MyListener listener;
 	private Project proj;
 	private EditTool edit;
-	private TextTool text;
+	private TextTool text = new TextTool();
 	//private
 
 
@@ -93,6 +93,12 @@ class LogisimToolbarItem extends JComponent implements ToolbarItem {
 		//edit = new EditTool();
 		text = new TextTool();
 		text.setMnemonic(KeyEvent.VK_0);*/
+		int menuMask = getToolkit().getMenuShortcutKeyMask();
+		poke.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, menuMask));
+		text.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, menuMask));
+		//poke.getAccessibleContext().setAccessibleDescription("poke");
+		add(poke);
+		add(text);
 	}
 
 	public void doAction() {
