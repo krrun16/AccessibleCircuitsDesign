@@ -42,6 +42,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.IllegalComponentStateException;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.Ellipse2D;
@@ -87,7 +88,7 @@ import com.cburch.logisim.proj.ProjectListener;
 import com.cburch.logisim.proj.Projects;
 import com.cburch.logisim.std.hdl.VhdlSimulatorConsole;
 import com.cburch.logisim.std.hdl.VhdlSimulatorListener;
-import com.cburch.logisim.tools.Tool;
+import com.cburch.logisim.tools.*;
 import com.cburch.logisim.util.HorizontalSplitPane;
 import com.cburch.logisim.util.JFileChoosers;
 import com.cburch.logisim.util.LocaleListener;
@@ -352,6 +353,7 @@ public class Frame extends LFrame implements LocaleListener {
 	private AppearanceView appearance;
 
 	private Double lastFraction = AppPreferences.WINDOW_RIGHT_SPLIT.get();
+
 
 	public Frame(Project proj) {
 		this.proj = proj;
