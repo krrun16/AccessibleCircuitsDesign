@@ -20,21 +20,27 @@ public class LogisimToolBar extends JMenuBar {
     private PokeTool poke;
     private TextTool text;
     private SelectTool select;
+    private WiringTool wiring;
     public LogisimToolBar(/*JFrame parent, Project proj*/){
         //this.parent = parent;
         //this.proj = proj;
         poke = new PokeTool();
-        poke.getAccessibleContext();
+
         poke.setMnemonic(KeyEvent.VK_0);
+        poke.getAccessibleContext().setAccessibleDescription("poke");
         add(poke);
         text = new TextTool();
-        text.getAccessibleContext();
         text.setMnemonic(KeyEvent.VK_1);
+        text.getAccessibleContext().setAccessibleDescription("text");
         add(text);
         select = new SelectTool();
-        select.getAccessibleContext();
         select.setMnemonic(KeyEvent.VK_2);
+        select.getAccessibleContext().setAccessibleDescription("select");
         add(select);
+        wiring = new WiringTool();
+        wiring.setMnemonic(KeyEvent.VK_2);
+        wiring.getAccessibleContext().setAccessibleDescription("wiring");
+        add(wiring);
 
     }
 
