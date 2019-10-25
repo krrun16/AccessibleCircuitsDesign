@@ -30,7 +30,13 @@
 
 package com.cburch.draw.toolbar;
 
+import com.cburch.logisim.tools.PokeTool;
+import com.cburch.logisim.tools.SelectTool;
+import com.cburch.logisim.tools.TextTool;
+import com.cburch.logisim.tools.WiringTool;
+
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -57,7 +63,12 @@ public class Toolbar extends JPanel {
 	private Object orientation;
 	private MyListener myListener;
 	private ToolbarButton curPressed;
-
+ /******************* EXP *******************/
+	private PokeTool poke;
+	private TextTool text;
+	private SelectTool select;
+	private WiringTool wiring;
+	/******************* EXP END *******************/
 	public Toolbar(ToolbarModel model) {
 		super(new BorderLayout());
 		this.subpanel = new JPanel();
@@ -65,6 +76,27 @@ public class Toolbar extends JPanel {
 		this.orientation = HORIZONTAL;
 		this.myListener = new MyListener();
 		this.curPressed = null;
+/******************* EXP *******************/
+		poke = new PokeTool();
+		poke.setMnemonic(KeyEvent.VK_0);
+		//poke.getAccessibleContext().setAccessibleDescription("poke");
+		add(poke);
+		text = new TextTool();
+		text.setMnemonic(KeyEvent.VK_1);
+		//text.getAccessibleContext().setAccessibleDescription("text");
+		add(text);
+		select = new SelectTool();
+		select.setMnemonic(KeyEvent.VK_2);
+		//select.getAccessibleContext().setAccessibleDescription("select");
+		add(select);
+		wiring = new WiringTool();
+		wiring.setMnemonic(KeyEvent.VK_2);
+		//wiring.getAccessibleContext().setAccessibleDescription("wiring");
+		add(wiring);
+
+/******************* EXP END *******************/
+
+
 
 		this.add(new JPanel(), BorderLayout.CENTER);
 		setOrientation(HORIZONTAL);
