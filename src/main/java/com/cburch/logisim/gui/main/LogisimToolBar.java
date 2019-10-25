@@ -25,7 +25,6 @@ public class LogisimToolBar extends JMenuBar {
         //this.parent = parent;
         //this.proj = proj;
         poke = new PokeTool();
-
         poke.setMnemonic(KeyEvent.VK_0);
         poke.getAccessibleContext().setAccessibleDescription("poke");
         add(poke);
