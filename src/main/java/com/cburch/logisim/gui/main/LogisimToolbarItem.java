@@ -42,7 +42,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 import com.cburch.draw.toolbar.ToolbarItem;
-import com.cburch.logisim.gui.menu.LogisimMenuBar;
+//import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.gui.menu.LogisimMenuItem;
 import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
