@@ -139,6 +139,7 @@ public class LogisimMenuBar extends JMenuBar {
 	private MenuHelp help;
 	private MenuFPGA fpga;
 
+
 	public LogisimMenuBar(JFrame parent, Project proj) {
 		this.parent = parent;
 		this.listener = new MyListener();
