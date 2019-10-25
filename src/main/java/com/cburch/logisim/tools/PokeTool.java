@@ -39,7 +39,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitEvent;
@@ -59,6 +59,7 @@ import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.util.Icons;
 
 public class PokeTool extends Tool {
+
 	private class Listener implements CircuitListener {
 		public void circuitChanged(CircuitEvent event) {
 			Circuit circ = pokedCircuit;
@@ -155,6 +156,7 @@ public class PokeTool extends Tool {
 	private Point OldPosition;
 
 	public PokeTool() {
+		//poke.setMnemonic(KeyEvent.VK_0);
 		this.listener = new Listener();
 	}
 
@@ -204,6 +206,7 @@ public class PokeTool extends Tool {
 	public void keyPressed(Canvas canvas, KeyEvent e) {
 		if (pokeCaret != null) {
 			pokeCaret.keyPressed(e);
+
 			canvas.getProject().repaintCanvas();
 		}
 	}
