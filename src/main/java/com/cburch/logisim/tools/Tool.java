@@ -44,10 +44,12 @@ import com.cburch.logisim.data.AttributeDefaultProvider;
 import com.cburch.logisim.data.AttributeSet;
 import com.cburch.logisim.gui.main.Canvas;
 
+import javax.swing.*;
+
 //
 // DRAWING TOOLS
 //
-public abstract class Tool implements AttributeDefaultProvider {
+public abstract class Tool extends AbstractButton implements AttributeDefaultProvider {
 	private static Cursor dflt_cursor = Cursor
 			.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 

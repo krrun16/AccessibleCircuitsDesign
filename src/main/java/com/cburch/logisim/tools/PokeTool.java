@@ -338,4 +338,7 @@ public class PokeTool extends Tool {
 			circ.addCircuitListener(listener);
 		}
 	}
+	public void localeChanged() {
+		this.setText(Strings.get("fileMenu"));
+	}
 }
