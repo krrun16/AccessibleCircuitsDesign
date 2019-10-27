@@ -89,6 +89,7 @@ class SimulationToolbarModel extends AbstractToolbarModel implements
 	@Override
 	public void itemSelected(ToolbarItem item) {
 		if (item instanceof LogisimToolbarItem) {
+			((LogisimToolbarItem) item).getAccessibleContext().setAccessibleDescription(item.getToolTip());
 			((LogisimToolbarItem) item).doAction();
 		}
 	}
