@@ -126,43 +126,43 @@ class MenuEdit extends Menu {
 
 		int menuMask = getToolkit().getMenuShortcutKeyMask();
 		undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, menuMask));
-		undo.getAccessibleContext().setAccessibleDescription(
-				"undo");
+		//undo.getAccessibleContext().setAccessibleDescription(
+		//		"undo");
 		redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, menuMask));
-		redo.getAccessibleContext().setAccessibleDescription(
-				"redo");
+		//redo.getAccessibleContext().setAccessibleDescription(
+		//		"redo");
 		cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, menuMask));
-		cut.getAccessibleContext().setAccessibleDescription(
-				"cut");
+		//cut.getAccessibleContext().setAccessibleDescription(
+		//		"cut");
 		copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, menuMask));
-		copy.getAccessibleContext().setAccessibleDescription(
-				"copy");
+		//copy.getAccessibleContext().setAccessibleDescription(
+		//		"copy");
 		paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, menuMask));
-		paste.getAccessibleContext().setAccessibleDescription(
-				"paste");
+		//paste.getAccessibleContext().setAccessibleDescription(
+		//		"paste");
 		delete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
-		delete.getAccessibleContext().setAccessibleDescription(
-				"delete");
+		//delete.getAccessibleContext().setAccessibleDescription(
+		//		"delete");
 		dup.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, menuMask));
-		dup.getAccessibleContext().setAccessibleDescription(
-				"duplicate");
+		//dup.getAccessibleContext().setAccessibleDescription(
+		//		"duplicate");
 		selall.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, menuMask));
-		selall.getAccessibleContext().setAccessibleDescription(
-				"select all");
+		//selall.getAccessibleContext().setAccessibleDescription(
+		//		"select all");
 		raise.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, menuMask));
-		raise.getAccessibleContext().setAccessibleDescription(
-				"raise");
+		//raise.getAccessibleContext().setAccessibleDescription(
+		//		"raise");
 		lower.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, menuMask));
-		lower.getAccessibleContext().setAccessibleDescription(
-				"lower");
+		//lower.getAccessibleContext().setAccessibleDescription(
+		//		"lower");
 		raiseTop.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, menuMask
 				| KeyEvent.SHIFT_DOWN_MASK));
-		raiseTop.getAccessibleContext().setAccessibleDescription(
-				"raise top");
+		//raiseTop.getAccessibleContext().setAccessibleDescription(
+		//		"raise top");
 		lowerBottom.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN,
 				menuMask | KeyEvent.SHIFT_DOWN_MASK));
-		lowerBottom.getAccessibleContext().setAccessibleDescription(
-				"lower bottom");
+		//lowerBottom.getAccessibleContext().setAccessibleDescription(
+		//		"lower bottom");
 
 		add(undo);
 		add(redo);

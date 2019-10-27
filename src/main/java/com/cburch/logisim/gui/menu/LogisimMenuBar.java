@@ -148,32 +148,32 @@ public class LogisimMenuBar extends JMenuBar {
 		//JMenu file;
 		//file = new JMenu("file");
 		file = new MenuFile(this);
-		file.getAccessibleContext();
+		//file.getAccessibleContext();
 		file.setMnemonic(KeyEvent.VK_A);
-		file.getAccessibleContext().setAccessibleDescription(
-				"file");
-		file.setToolTipText(
-				"Clicking this component causes XYZ to happen.");
+		//file.getAccessibleContext().setAccessibleDescription(
+		//		"file");
+		//file.setToolTipText(
+		//		"Clicking this component causes XYZ to happen.");
 		add(file);
 		edit = new MenuEdit(this);
 		edit.setMnemonic(KeyEvent.VK_0);
-		edit.getAccessibleContext().setAccessibleDescription(
-				"edit");
+		//edit.getAccessibleContext().setAccessibleDescription(
+		//		"edit");
 		add(edit);
 		project = new MenuProject(this);
 		project.setMnemonic(KeyEvent.VK_C);
-		project.getAccessibleContext().setAccessibleDescription(
-				"project");
+		//project.getAccessibleContext().setAccessibleDescription(
+		//		"project");
 		add(project);
 		simulate = new MenuSimulate(this);
 		simulate.setMnemonic(KeyEvent.VK_2);
-		simulate.getAccessibleContext().setAccessibleDescription(
-				"simulate");
+		//simulate.getAccessibleContext().setAccessibleDescription(
+		//		"simulate");
 		add(simulate);
 		fpga = new MenuFPGA(parent, this, proj);
 		fpga.setMnemonic(KeyEvent.VK_1);
-		fpga.getAccessibleContext().setAccessibleDescription(
-				"fpga");
+		//fpga.getAccessibleContext().setAccessibleDescription(
+		//		"fpga");
 		add(fpga);
 		add(new WindowMenu(parent));
 		add(help = new MenuHelp(this));
