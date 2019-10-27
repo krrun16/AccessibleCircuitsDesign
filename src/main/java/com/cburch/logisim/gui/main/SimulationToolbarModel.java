@@ -40,6 +40,7 @@ import com.cburch.draw.toolbar.ToolbarItem;
 import com.cburch.logisim.circuit.Simulator;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.tools.Tool;
 import com.cburch.logisim.util.UnmodifiableList;
 
 class SimulationToolbarModel extends AbstractToolbarModel implements
@@ -51,6 +52,7 @@ class SimulationToolbarModel extends AbstractToolbarModel implements
 	private LogisimToolbarItem tickStep;
 	private LogisimToolbarItem tickStepMain;
 	private List<ToolbarItem> items;
+	private Tool tool;
 
 	public SimulationToolbarModel(Project project, MenuListener menu) {
 		this.project = project;
@@ -89,7 +91,8 @@ class SimulationToolbarModel extends AbstractToolbarModel implements
 	@Override
 	public void itemSelected(ToolbarItem item) {
 		if (item instanceof LogisimToolbarItem) {
-			((LogisimToolbarItem) item).getAccessibleContext().setAccessibleDescription(item.getToolTip());
+			((LogisimToolbarItem) item).getAccessibleContext().setAccessibleDescription(tool.cloneTool().getDescription());
+			//((LogisimToolbarItem) item).getAccessibleContext().setAccessibleDescription(item.getToolTip());
 			((LogisimToolbarItem) item).doAction();
 		}
 	}
