@@ -75,6 +75,7 @@ public class KeyboardToolSelection extends AbstractAction {
 			if (item.isSelectable()) {
 				i++;
 				if (i == index) {
+					item.getToolTip();
 					model.itemSelected(item);
 				}
 			}

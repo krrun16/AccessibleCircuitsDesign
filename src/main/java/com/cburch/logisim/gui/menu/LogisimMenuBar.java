@@ -201,7 +201,9 @@ public class LogisimMenuBar extends JMenuBar {
 	}
 
 	public void doAction(LogisimMenuItem which) {
+		//which.getAccessibleContext().setAccessibleDescription();
 		MenuItem item = menuItems.get(which);
+
 		item.actionPerformed(new ActionEvent(item,
 				ActionEvent.ACTION_PERFORMED, which.toString()));
 	}
