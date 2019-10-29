@@ -30,10 +30,11 @@
 
 package com.cburch.draw.toolbar;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractToolbarModel implements ToolbarModel {
+public abstract class AbstractToolbarModel extends JMenu implements ToolbarModel {
 	private List<ToolbarModelListener> listeners;
 
 	public AbstractToolbarModel() {
