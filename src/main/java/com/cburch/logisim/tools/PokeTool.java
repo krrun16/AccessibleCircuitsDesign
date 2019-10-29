@@ -339,6 +339,6 @@ public class PokeTool extends Tool {
 		}
 	}
 	public void localeChanged() {
-		this.setText(Strings.get("fileMenu"));
+		this.setText(Strings.get("pokeTool"));
 	}
 }
