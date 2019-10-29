@@ -221,7 +221,7 @@ public class AddTool extends Tool {
 	}
 
 	private void expose(java.awt.Component c, int x, int y) {
-		Bounds bds = getBounds();
+		Bounds bds = getBoundsTth2();
 		c.repaint(x + bds.getX(), y + bds.getY(), bds.getWidth(),
 				bds.getHeight());
 	}
@@ -239,7 +239,7 @@ public class AddTool extends Tool {
 		return ret;
 	}
 
-	private Bounds getBounds() {
+	private Bounds getBoundsTth2() {
 		Bounds ret = bounds;
 		if (ret == null) {
 			ComponentFactory source = getFactory();
