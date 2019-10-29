@@ -52,16 +52,28 @@ import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
+import com.cburch.logisim.tools.PokeTool;
 import com.cburch.logisim.tools.Tool;
 import com.cburch.logisim.util.InputEventUtil;
 
+
+
 class LayoutToolbarModel extends AbstractToolbarModel {
+	private PokeTool poke;
 	private class MyListener implements ProjectListener, AttributeListener,
 			ToolbarData.ToolbarListener, PropertyChangeListener {
 		//
 		// AttributeListener methods
 		//
 		public void attributeListChanged(AttributeEvent e) {
+		}
+		public void localeChanged() {
+			poke.localeChanged();
+			/*edit.localeChanged();
+			project.localeChanged();
+			fpga.localeChanged();
+			simulate.localeChanged();
+			help.localeChanged();*/
 		}
 
 		public void attributeValueChanged(AttributeEvent e) {
@@ -189,6 +201,8 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 		items = Collections.emptyList();
 		haloedTool = null;
 		buildContents();
+		poke = new PokeTool();
+		add(poke);
 
 		// set up listeners
 		ToolbarData data = proj.getOptions().getToolbarData();
