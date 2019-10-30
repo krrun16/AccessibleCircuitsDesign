@@ -77,6 +77,7 @@ class ToolboxToolbarModel extends AbstractToolbarModel implements
 
 	@Override
 	public void itemSelected(ToolbarItem item) {
+		System.out.println("TextTM");
 		if (item instanceof LogisimToolbarItem) {
 			((LogisimToolbarItem) item).doAction();
 		}
