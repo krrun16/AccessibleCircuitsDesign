@@ -97,6 +97,7 @@ class ProjectToolbarModel extends AbstractToolbarModel implements
 
 	@Override
 	public void itemSelected(ToolbarItem item) {
+		System.out.println("PTM");
 		if (item instanceof LogisimToolbarItem) {
 			((LogisimToolbarItem) item).doAction();
 		}

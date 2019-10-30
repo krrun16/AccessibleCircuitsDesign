@@ -254,7 +254,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 
 			Tool tool = ((ToolItem) item).tool;
 			//
-			tool.getDescription();
+			//tool.getDescription();
 			//
 			proj.setTool(tool);
 		}
