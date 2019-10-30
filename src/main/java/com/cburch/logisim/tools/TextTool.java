@@ -327,4 +327,8 @@ public class TextTool extends Tool {
 	public void paintIcon(ComponentDrawContext c, int x, int y) {
 		Text.FACTORY.paintIcon(c, x, y, null);
 	}
+
+	public void localeChanged() {
+		this.setText(Strings.get("textTool"));
+	}
 }

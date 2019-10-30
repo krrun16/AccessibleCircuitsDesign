@@ -52,14 +52,17 @@ import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
+import com.cburch.logisim.std.wiring.Wiring;
 import com.cburch.logisim.tools.PokeTool;
+import com.cburch.logisim.tools.TextTool;
 import com.cburch.logisim.tools.Tool;
+import com.cburch.logisim.tools.WiringTool;
 import com.cburch.logisim.util.InputEventUtil;
 
 
 
 class LayoutToolbarModel extends AbstractToolbarModel {
-	private PokeTool poke;
+
 	private class MyListener implements ProjectListener, AttributeListener,
 			ToolbarData.ToolbarListener, PropertyChangeListener {
 		//
@@ -69,6 +72,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 		}
 		public void localeChanged() {
 			poke.localeChanged();
+			text.localeChanged();
 			/*edit.localeChanged();
 			project.localeChanged();
 			fpga.localeChanged();
@@ -192,6 +196,10 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 	private MyListener myListener;
 	private List<ToolbarItem> items;
 
+	private PokeTool poke;
+	private TextTool text;
+	private WiringTool wiring;
+
 	private Tool haloedTool;
 
 	public LayoutToolbarModel(Frame frame, Project proj) {
@@ -201,8 +209,15 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 		items = Collections.emptyList();
 		haloedTool = null;
 		buildContents();
+
+
 		poke = new PokeTool();
 		add(poke);
+		text = new TextTool();
+		add(text);
+		wiring = new WiringTool();
+		add(wiring);
+
 
 		// set up listeners
 		ToolbarData data = proj.getOptions().getToolbarData();
