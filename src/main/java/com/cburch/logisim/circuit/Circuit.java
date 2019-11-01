@@ -228,8 +228,8 @@ public class Circuit {
 
 	private LogisimFile logiFile;
 
-	public Circuit(String name, LogisimFile file, Project proj) {
-		staticAttrs = CircuitAttributes.createBaseAttrs(this, name);
+	public Circuit(String toolName, String name, LogisimFile file, Project proj) {
+		staticAttrs = CircuitAttributes.createBaseAttrs(this, name, toolName);
 		appearance = new CircuitAppearance(this);
 		subcircuitFactory = new SubcircuitFactory(this);
 		locker = new CircuitLocker();

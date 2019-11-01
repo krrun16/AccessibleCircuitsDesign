@@ -110,17 +110,19 @@ public class CircuitAttributes extends AbstractAttributeSet {
 		}
 	}
 
-	static AttributeSet createBaseAttrs(Circuit source, String name) {
+	static AttributeSet createBaseAttrs(Circuit source, String name, String toolName) {
 		AttributeSet ret = AttributeSets
 				.fixedSet(STATIC_ATTRS, STATIC_DEFAULTS);
 		ret.setValue(CircuitAttributes.NAME_ATTR, name);
 		ret.addAttributeListener(new StaticListener(source));
+		ret.setValue(CircuitAttributes.TOOL_NAME, toolName);
 		return ret;
 	}
 
 	public static final Attribute<String> NAME_ATTR = Attributes.forString(
 			"circuit", Strings.getter("circuitName"));
-
+	public static final Attribute<String> TOOL_NAME = Attributes.forString(
+			"tool", Strings.getter("toolName"));
 	public static final Attribute<Direction> LABEL_LOCATION_ATTR = Attributes
 			.forDirection("labelloc", Strings.getter("circuitLabelLocAttr"));
 
@@ -141,9 +143,9 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	public static final Attribute<Boolean> NAMED_CIRCUIT_BOX_FIXED_SIZE = Attributes
 			.forBoolean("circuitnamedboxfixedsize",Strings.getter("circuitNamedBoxFixedSize"));
 
-	private static final Attribute<?>[] STATIC_ATTRS = { NAME_ATTR,
+	private static final Attribute<?>[] STATIC_ATTRS = { NAME_ATTR, TOOL_NAME,
 			CIRCUIT_LABEL_ATTR, CIRCUIT_LABEL_FACING_ATTR,
-			CIRCUIT_LABEL_FONT_ATTR,NAMED_CIRCUIT_BOX,NAMED_CIRCUIT_BOX_FIXED_SIZE, 
+			CIRCUIT_LABEL_FONT_ATTR,NAMED_CIRCUIT_BOX,NAMED_CIRCUIT_BOX_FIXED_SIZE,
 			CIRCUIT_VHDL_PATH, };
 
 	private static final Object[] STATIC_DEFAULTS = { "", "", Direction.EAST,
@@ -151,7 +153,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 			false,false, "", };
 
 	private static final List<Attribute<?>> INSTANCE_ATTRS = Arrays
-			.asList(new Attribute<?>[] { StdAttr.FACING, StdAttr.LABEL,
+			.asList(new Attribute<?>[] { StdAttr.FACING,  StdAttr.LABEL,
 					LABEL_LOCATION_ATTR, StdAttr.LABEL_FONT,StdAttr.LABEL_VISIBILITY,
 					CircuitAttributes.NAME_ATTR, CIRCUIT_LABEL_ATTR,
 					CIRCUIT_LABEL_FACING_ATTR, CIRCUIT_LABEL_FONT_ATTR,
