@@ -217,11 +217,11 @@ public class VhdlSimulator implements CircuitListener {
 	/* At least one of the VHDL entity changed */
 	public void fireInvalidated() {
 
-		// File dir = new File(SIM_SRC_PATH);
-		// for(File file: dir.listFiles()) file.delete();
+		 // File dir = new File(SIM_SRC_PATH);
+		 // for(File file: dir.listFiles()) file.delete();
 
-		// vhdlTop.fireInvalidated();
-		// tclRun.fireInvalidated();
+		 // vhdlTop.fireInvalidated();
+		 // tclRun.fireInvalidated();
 	}
 
 	private void fireVhdlSimStateChanged() {

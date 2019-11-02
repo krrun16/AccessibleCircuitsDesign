@@ -118,7 +118,10 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 		return false;
 	}
 
-	
+	public static String getToolName(Library lib){
+		Tool myTool = lib.getTools();
+		return myTool.getDisplayName();
+	}
 
 	private static class WritingThread extends UniquelyNamedThread {
 		OutputStream out;
