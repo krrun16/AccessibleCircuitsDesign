@@ -151,8 +151,13 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 	// creation methods
 	//
 	public static LogisimFile createNew(Loader loader, Project proj) {
+		//
+		String toolName = com.cburch.logisim.tools.Strings.get("pokeTool");
+		//
 		LogisimFile ret = new LogisimFile(loader);
-		ret.main = new Circuit("main", ret,proj);
+		//
+		ret.main = new Circuit(toolName,"main", ret, proj);
+		//
 		// The name will be changed in LogisimPreferences
 		ret.tools.add(new AddTool(ret.main.getSubcircuitFactory()));
 		return ret;
