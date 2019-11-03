@@ -686,6 +686,10 @@ public class Circuit {
 	public String getName() {
 		return staticAttrs.getValue(CircuitAttributes.NAME_ATTR);
 	}
+/*
+	public String getName2() {
+		return staticAttrs.getValue(CircuitAttributes.TOOL_NAME);
+	}*/
 
 	public Netlist getNetList() {
 		return MyNetList;

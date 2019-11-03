@@ -304,6 +304,10 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 				for (Attribute<?> attr : atrs.getAttributes()) {
 					if (attr==CircuitAttributes.NAME_ATTR)
 						atrs.setReadOnly(attr, true);
+					//
+					if (attr==CircuitAttributes.TOOL_NAME)
+						atrs.setReadOnly(attr, true);
+					//
 				}
 			}
 		}

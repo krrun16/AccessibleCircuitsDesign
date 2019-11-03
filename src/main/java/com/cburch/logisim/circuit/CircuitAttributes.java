@@ -122,7 +122,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	public static final Attribute<String> NAME_ATTR = Attributes.forString(
 			"circuit", Strings.getter("circuitName"));
 	public static final Attribute<String> TOOL_NAME = Attributes.forString(
-			"tool", Strings.getter("toolName"));
+			"tool", Strings.getter("circuitName"));
 	public static final Attribute<Direction> LABEL_LOCATION_ATTR = Attributes
 			.forDirection("labelloc", Strings.getter("circuitLabelLocAttr"));
 
