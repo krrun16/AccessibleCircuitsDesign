@@ -110,12 +110,12 @@ public class CircuitAttributes extends AbstractAttributeSet {
 		}
 	}
 
-	static AttributeSet createBaseAttrs(Circuit source, String name, String toolName) {
+	static AttributeSet createBaseAttrs(Circuit source, String name/*, String toolName*/) {
 		AttributeSet ret = AttributeSets
 				.fixedSet(STATIC_ATTRS, STATIC_DEFAULTS);
 		ret.setValue(CircuitAttributes.NAME_ATTR, name);
 		ret.addAttributeListener(new StaticListener(source));
-		ret.setValue(CircuitAttributes.TOOL_NAME, toolName);
+		//ret.setValue(CircuitAttributes.TOOL_NAME, toolName);
 		return ret;
 	}
 
@@ -143,7 +143,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	public static final Attribute<Boolean> NAMED_CIRCUIT_BOX_FIXED_SIZE = Attributes
 			.forBoolean("circuitnamedboxfixedsize",Strings.getter("circuitNamedBoxFixedSize"));
 
-	private static final Attribute<?>[] STATIC_ATTRS = { NAME_ATTR, TOOL_NAME,
+	private static final Attribute<?>[] STATIC_ATTRS = { NAME_ATTR, /*TOOL_NAME,*/
 			CIRCUIT_LABEL_ATTR, CIRCUIT_LABEL_FACING_ATTR,
 			CIRCUIT_LABEL_FONT_ATTR,NAMED_CIRCUIT_BOX,NAMED_CIRCUIT_BOX_FIXED_SIZE,
 			CIRCUIT_VHDL_PATH, };
@@ -155,7 +155,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	private static final List<Attribute<?>> INSTANCE_ATTRS = Arrays
 			.asList(new Attribute<?>[] { StdAttr.FACING,  StdAttr.LABEL,
 					LABEL_LOCATION_ATTR, StdAttr.LABEL_FONT,StdAttr.LABEL_VISIBILITY,
-					CircuitAttributes.NAME_ATTR, TOOL_NAME, CIRCUIT_LABEL_ATTR,
+					CircuitAttributes.NAME_ATTR, /*TOOL_NAME,*/ CIRCUIT_LABEL_ATTR,
 					CIRCUIT_LABEL_FACING_ATTR, CIRCUIT_LABEL_FONT_ATTR,
 					CIRCUIT_VHDL_PATH, });
 
@@ -205,6 +205,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	@Override
 	@SuppressWarnings("unchecked")
 	public <E> E getValue(Attribute<E> attr) {
+		//System.out.println("getVal");
 		if (attr == StdAttr.FACING)
 			return (E) facing;
 		if (attr == StdAttr.LABEL)
@@ -259,6 +260,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	
 	@Override
 	public <E> void setValue(Attribute<E> attr, E value) {
+		System.out.println("print setval");
 		if (attr == StdAttr.FACING) {
 			Direction val = (Direction) value;
 			if (facing.equals(val))

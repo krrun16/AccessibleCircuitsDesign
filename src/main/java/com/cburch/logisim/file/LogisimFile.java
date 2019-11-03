@@ -118,10 +118,10 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 		return false;
 	}
 
-	public static String getToolName(Library lib){
+	/*public static String getToolName(Library lib){
 		Tool myTool = lib.getTools();
 		return myTool.getDisplayName();
-	}
+	}*/
 
 	private static class WritingThread extends UniquelyNamedThread {
 		OutputStream out;
@@ -154,12 +154,13 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 	// creation methods
 	//
 	public static LogisimFile createNew(Loader loader, Project proj) {
+		//System.out.println("prnt LogiFile");
 		//
-		String toolName = com.cburch.logisim.tools.Strings.get("pokeTool");
+		//String toolName = com.cburch.logisim.tools.Strings.get("pokeTool");
 		//
 		LogisimFile ret = new LogisimFile(loader);
 		//
-		ret.main = new Circuit(toolName,"main", ret, proj);
+		ret.main = new Circuit(/*toolName,*/"main", ret, proj);
 		//
 		// The name will be changed in LogisimPreferences
 		ret.tools.add(new AddTool(ret.main.getSubcircuitFactory()));
