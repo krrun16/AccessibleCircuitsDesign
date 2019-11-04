@@ -119,7 +119,7 @@ public class Instance {
 		comp.setPorts(ports);
 	}
 
-	public void setTextField(Attribute<String> labelAttr,
+	public void setTextField(Attribute<String> toolName, Attribute<String> labelAttr,
 			Attribute<Font> fontAttr, int x, int y, int halign, int valign) {
 		comp.setTextField(labelAttr, fontAttr, x, y, halign, valign);
 	}

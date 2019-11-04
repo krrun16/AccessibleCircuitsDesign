@@ -112,7 +112,7 @@ public class Tunnel extends InstanceFactory {
 	private void configureLabel(Instance instance) {
 		TunnelAttributes attrs = (TunnelAttributes) instance.getAttributeSet();
 		Location loc = instance.getLocation();
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, loc.getX()
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, loc.getX()
 				+ attrs.getLabelX(), loc.getY() + attrs.getLabelY(),
 				attrs.getLabelHAlign(), attrs.getLabelVAlign());
 	}

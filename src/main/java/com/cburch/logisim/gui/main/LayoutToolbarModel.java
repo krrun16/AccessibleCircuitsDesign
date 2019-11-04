@@ -264,7 +264,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 
 	@Override
 	public void itemSelected(ToolbarItem item) {
-		System.out.println("LTM");
+		//System.out.println("LTM");
 		if (item instanceof ToolItem) {
 
 			Tool tool = ((ToolItem) item).tool;

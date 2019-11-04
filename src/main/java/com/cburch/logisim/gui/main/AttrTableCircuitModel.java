@@ -49,6 +49,7 @@ public class AttrTableCircuitModel extends AttributeSetTableModel {
 
 	@Override
 	public String getTitle() {
+		System.out.println(circ.getName());
 		return Strings.get("circuitAttrTitle", circ.getName());
 	}
 

@@ -49,6 +49,8 @@ import com.cburch.logisim.instance.InstanceState;
 import com.cburch.logisim.util.GraphicsUtil;
 
 public class Text extends InstanceFactory {
+	public static Attribute<String> TEXT_TOOL = Attributes.forString("name",
+			Strings.getter("toolName"));
 	public static Attribute<String> ATTR_TEXT = Attributes.forString("text",
 			Strings.getter("textTextAttr"));
 	public static Attribute<Font> ATTR_FONT = Attributes.forFont("font",
@@ -96,7 +98,7 @@ public class Text extends InstanceFactory {
 	private void configureLabel(Instance instance) {
 		TextAttributes attrs = (TextAttributes) instance.getAttributeSet();
 		Location loc = instance.getLocation();
-		instance.setTextField(ATTR_TEXT, ATTR_FONT, loc.getX(), loc.getY(),
+		instance.setTextField(TEXT_TOOL, ATTR_TEXT, ATTR_FONT, loc.getX(), loc.getY(),
 				attrs.getHorizontalAlign(), attrs.getVerticalAlign());
 	}
 

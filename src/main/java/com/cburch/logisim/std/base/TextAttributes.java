@@ -42,9 +42,9 @@ import com.cburch.logisim.instance.StdAttr;
 
 class TextAttributes extends AbstractAttributeSet {
 	private static final List<Attribute<?>> ATTRIBUTES = Arrays
-			.asList(new Attribute<?>[] { Text.ATTR_TEXT, Text.ATTR_FONT,
+			.asList(new Attribute<?>[] { Text.TEXT_TOOL, Text.ATTR_TEXT, Text.ATTR_FONT,
 					Text.ATTR_HALIGN, Text.ATTR_VALIGN });
-
+	private String name;
 	private String text;
 	private Font font;
 	private AttributeOption halign;
@@ -52,6 +52,7 @@ class TextAttributes extends AbstractAttributeSet {
 	private Bounds offsetBounds;
 
 	public TextAttributes() {
+		name = "Text Tool";
 		text = "";
 		font = StdAttr.DEFAULT_LABEL_FONT;
 		halign = Text.ATTR_HALIGN.parse("center");
@@ -96,6 +97,8 @@ class TextAttributes extends AbstractAttributeSet {
 			return (V) halign;
 		if (attr == Text.ATTR_VALIGN)
 			return (V) valign;
+		if (attr == Text.TEXT_TOOL)
+			return (V) name;
 		return null;
 	}
 
@@ -122,7 +125,10 @@ class TextAttributes extends AbstractAttributeSet {
 			halign = (AttributeOption) value;
 		} else if (attr == Text.ATTR_VALIGN) {
 			valign = (AttributeOption) value;
-		} else {
+		} else if (attr == Text.TEXT_TOOL){
+			name = (String) value;
+		}
+		else {
 			throw new IllegalArgumentException("unknown attribute");
 		}
 		offsetBounds = null;

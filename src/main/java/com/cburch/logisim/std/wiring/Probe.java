@@ -128,7 +128,7 @@ public class Probe extends InstanceFactory {
 			}
 		}
 
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign,
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign,
 				valign);
 	}
 

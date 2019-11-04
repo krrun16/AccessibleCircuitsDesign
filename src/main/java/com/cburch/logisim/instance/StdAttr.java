@@ -61,7 +61,8 @@ public interface StdAttr {
 	public static final Attribute<AttributeOption> EDGE_TRIGGER = Attributes
 			.forOption("trigger", Strings.getter("stdTriggerAttr"),
 					new AttributeOption[] { TRIG_RISING, TRIG_FALLING });
-
+	public static final Attribute<String> TOOLNAME = Attributes.forString("name",
+			Strings.getter("toolName"));
 	public static final Attribute<String> LABEL = Attributes.forString("label",
 			Strings.getter("stdLabelAttr"));
 	public static final Attribute<Font> LABEL_FONT = Attributes.forFont(
