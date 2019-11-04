@@ -119,7 +119,7 @@ public class ShiftRegister extends InstanceFactory {
 		ps[CK].setToolTip(Strings.getter("shiftRegClockTip"));
 		ps[CLR].setToolTip(Strings.getter("shiftRegClearTip"));
 		instance.setPorts(ps);
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, bds.getX()
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, bds.getX()
 				+ bds.getWidth() / 2, bds.getY() - 3, GraphicsUtil.H_CENTER,
 				GraphicsUtil.V_BASELINE);
 	}

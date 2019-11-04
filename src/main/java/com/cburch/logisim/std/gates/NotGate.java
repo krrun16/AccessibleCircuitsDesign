@@ -102,7 +102,7 @@ class NotGate extends InstanceFactory {
 				halign = TextField.H_CENTER;
 			}
 		}
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign,
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign,
 				TextField.V_BASELINE);
 	}
 
