@@ -126,7 +126,7 @@ public class Buzzer extends InstanceFactory {
 		Bounds b = instance.getBounds();
 		updateports(instance);
 		instance.addAttributeListener();
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, b.getX() + b.getWidth() / 2,
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, b.getX() + b.getWidth() / 2,
 				b.getY() - 3, GraphicsUtil.H_CENTER, GraphicsUtil.V_BOTTOM);
 	}
 

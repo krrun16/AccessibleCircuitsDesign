@@ -145,7 +145,7 @@ public class Random extends InstanceFactory {
 	@Override
 	protected void configureNewInstance(Instance instance) {
 		Bounds bds = instance.getBounds();
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, bds.getX()
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, bds.getX()
 				+ bds.getWidth() / 2, bds.getY() - 3, GraphicsUtil.H_CENTER,
 				GraphicsUtil.V_BASELINE);
 	}

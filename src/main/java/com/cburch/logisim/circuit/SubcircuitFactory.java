@@ -164,7 +164,7 @@ public class SubcircuitFactory extends InstanceFactory {
 			y = bds.getY() - 2;
 			va = GraphicsUtil.V_BASELINE;
 		}
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, ha, va);
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, ha, va);
 	}
 
 	//

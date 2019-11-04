@@ -79,7 +79,7 @@ public class DigitalOscilloscope extends InstanceFactory {
 			y = bds.getY() - 2;
 			valign = GraphicsUtil.V_BOTTOM;
 		}
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign, valign);
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign, valign);
 	}
 
 	@Override

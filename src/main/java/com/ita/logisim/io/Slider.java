@@ -190,7 +190,7 @@ public class Slider extends InstanceFactory {
 			y = bds.getY();
 			valign = GraphicsUtil.V_BASELINE;
 		}
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign, valign);
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign, valign);
 	}
 
 	@Override

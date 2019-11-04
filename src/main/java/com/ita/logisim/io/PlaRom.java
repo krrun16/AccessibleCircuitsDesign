@@ -260,7 +260,7 @@ public class PlaRom extends InstanceFactory {
 		Bounds bds = instance.getBounds();
 		instance.addAttributeListener();
 		updateports(instance);
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, 
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT,
 				bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 3, GraphicsUtil.H_CENTER,
 				GraphicsUtil.V_CENTER_OVERALL);
 	}

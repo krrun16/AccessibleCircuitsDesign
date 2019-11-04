@@ -140,7 +140,7 @@ abstract class AbstractGate extends InstanceFactory {
 			cx = loc.getX() - axis;
 			cy = loc.getY() + perp;
 		}
-		instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, cx, cy,
+		instance.setTextField(StdAttr.TOOLNAME, StdAttr.LABEL, StdAttr.LABEL_FONT, cx, cy,
 				TextField.H_CENTER, TextField.V_CENTER);
 	}
 
