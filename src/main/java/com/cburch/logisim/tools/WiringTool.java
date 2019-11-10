@@ -55,6 +55,7 @@ import com.cburch.logisim.util.Icons;
 import com.cburch.logisim.util.StringGetter;
 
 public class WiringTool extends Tool {
+	private Integer sec = 0;
 	private static Cursor cursor = Cursor
 			.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 	private static final Icon toolIcon = Icons.getIcon("wiring.gif");
@@ -237,10 +238,13 @@ public class WiringTool extends Tool {
 				lastAction = null;
 			}
 		}
+		System.out.println("Wiring");
 	}
 
 	@Override
 	public void mouseDragged(Canvas canvas, Graphics g, MouseEvent e) {
+		sec += 1;
+		System.out.println("mouse dragged" + sec);
 		if (exists) {
 			Canvas.snapToGrid(e);
 			int curX = e.getX();
@@ -295,6 +299,7 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mouseMoved(Canvas canvas, Graphics g, MouseEvent e) {
+		System.out.println("mouse moved");
 		if (exists) {
 			mouseDragged(canvas, g, e);
 		} else {
@@ -311,6 +316,7 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mousePressed(Canvas canvas, Graphics g, MouseEvent e) {
+		System.out.println("mouse pressed");
 		if (!canvas.getProject().getLogisimFile().contains(canvas.getCircuit())) {
 			exists = false;
 			canvas.setErrorMessage(Strings.getter("cannotModifyError"));
