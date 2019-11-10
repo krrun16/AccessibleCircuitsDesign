@@ -159,6 +159,7 @@ public class Canvas extends JPanel implements LocaleListener,
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
+			System.out.println("dragged");
 			if (drag_tool != null) {
 				drag_tool.mouseDragged(Canvas.this, getGraphics(), e);
 			}
@@ -926,6 +927,8 @@ public class Canvas extends JPanel implements LocaleListener,
 	// access methods
 	//
 	public Circuit getCircuit() {
+
+		System.out.println("print");
 		return proj.getCurrentCircuit();
 	}
 

@@ -44,7 +44,7 @@ class ToolbarButton extends JComponent implements MouseListener {
 	private static final long serialVersionUID = 1L;
 
 	private static final int BORDER = 2;
-
+	private int count = 0;
 	private Toolbar toolbar;
 	private ToolbarItem item;
 
@@ -105,6 +105,8 @@ class ToolbarButton extends JComponent implements MouseListener {
 
 	@Override
 	public void paintComponent(Graphics g) {
+		count += 1;
+		System.out.println("paint me" + count);
 		if (toolbar.getPressed() == this) {
 			Dimension dim = item.getDimension(toolbar.getOrientation());
 			Color defaultColor = g.getColor();
