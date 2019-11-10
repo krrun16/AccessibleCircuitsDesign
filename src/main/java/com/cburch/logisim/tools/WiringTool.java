@@ -342,6 +342,7 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mouseReleased(Canvas canvas, Graphics g, MouseEvent e) {
+		System.out.println("mouse released");
 		if (!exists)
 			return;
 
