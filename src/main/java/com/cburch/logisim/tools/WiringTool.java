@@ -244,7 +244,9 @@ public class WiringTool extends Tool {
 	@Override
 	public void mouseDragged(Canvas canvas, Graphics g, MouseEvent e) {
 		sec += 1;
-		System.out.println("mouse dragged" + sec);
+		if (sec < 2) {
+			System.out.println("you are dragging the wire" );
+		}
 		if (exists) {
 			Canvas.snapToGrid(e);
 			int curX = e.getX();
@@ -299,7 +301,7 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mouseMoved(Canvas canvas, Graphics g, MouseEvent e) {
-		System.out.println("mouse moved");
+		//System.out.println("mouse moved");
 		if (exists) {
 			mouseDragged(canvas, g, e);
 		} else {
@@ -316,7 +318,7 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mousePressed(Canvas canvas, Graphics g, MouseEvent e) {
-		System.out.println("mouse pressed");
+		System.out.println("Wire starts here");
 		if (!canvas.getProject().getLogisimFile().contains(canvas.getCircuit())) {
 			exists = false;
 			canvas.setErrorMessage(Strings.getter("cannotModifyError"));
@@ -342,7 +344,8 @@ public class WiringTool extends Tool {
 
 	@Override
 	public void mouseReleased(Canvas canvas, Graphics g, MouseEvent e) {
-		System.out.println("mouse released");
+		System.out.println("Wire ends here");
+		sec = 0;
 		if (!exists)
 			return;
 
