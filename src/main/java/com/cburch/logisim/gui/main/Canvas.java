@@ -105,6 +105,8 @@ import com.cburch.logisim.util.StringGetter;
 public class Canvas extends JPanel implements LocaleListener,
 		CanvasPaneContents,AdjustmentListener {
 
+	private EditTool editTool;
+
 	private class MyListener implements MouseInputListener, KeyListener,
 			PopupMenuListener, PropertyChangeListener, MouseWheelListener {
 
@@ -159,7 +161,7 @@ public class Canvas extends JPanel implements LocaleListener,
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			System.out.println("dragged");
+			//System.out.println("dragged");
 			if (drag_tool != null) {
 				drag_tool.mouseDragged(Canvas.this, getGraphics(), e);
 			}
@@ -208,6 +210,9 @@ public class Canvas extends JPanel implements LocaleListener,
 
 		@Override
 		public void mousePressed(MouseEvent e) {
+			//if ((proj.getTool().getDisplayName().getClass()) !=  (editTool.getClass())) {
+			System.out.println(proj.getTool() + " is put on canvas");
+			//}
 			viewport.setErrorMessage(null, null);
 			if (proj.isStartupScreen()) {
 				Graphics g = getGraphics();
@@ -928,7 +933,7 @@ public class Canvas extends JPanel implements LocaleListener,
 	//
 	public Circuit getCircuit() {
 
-		System.out.println("print");
+		//System.out.println("print");
 		return proj.getCurrentCircuit();
 	}
 

@@ -105,8 +105,8 @@ class ToolbarButton extends JComponent implements MouseListener {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		count += 1;
-		System.out.println("paint me" + count);
+		//count += 1;
+		//System.out.println("paint me" + count);
 		if (toolbar.getPressed() == this) {
 			Dimension dim = item.getDimension(toolbar.getOrientation());
 			Color defaultColor = g.getColor();
