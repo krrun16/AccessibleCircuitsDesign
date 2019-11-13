@@ -92,11 +92,7 @@ import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
-import com.cburch.logisim.tools.AddTool;
-import com.cburch.logisim.tools.EditTool;
-import com.cburch.logisim.tools.Library;
-import com.cburch.logisim.tools.Tool;
-import com.cburch.logisim.tools.ToolTipMaker;
+import com.cburch.logisim.tools.*;
 import com.cburch.logisim.util.GraphicsUtil;
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
@@ -105,7 +101,7 @@ import com.cburch.logisim.util.StringGetter;
 public class Canvas extends JPanel implements LocaleListener,
 		CanvasPaneContents,AdjustmentListener {
 
-	private EditTool editTool;
+
 
 	private class MyListener implements MouseInputListener, KeyListener,
 			PopupMenuListener, PropertyChangeListener, MouseWheelListener {
@@ -210,9 +206,9 @@ public class Canvas extends JPanel implements LocaleListener,
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			//if ((proj.getTool().getDisplayName().getClass()) !=  (editTool.getClass())) {
-			System.out.println(proj.getTool() + " is put on canvas");
-			//}
+			if (!(proj.getTool() instanceof com.cburch.logisim.tools.EditTool) && !(proj.getTool() instanceof com.cburch.logisim.tools.PokeTool)) {
+				System.out.println(proj.getTool() + " is put on canvas");
+			}
 			viewport.setErrorMessage(null, null);
 			if (proj.isStartupScreen()) {
 				Graphics g = getGraphics();
