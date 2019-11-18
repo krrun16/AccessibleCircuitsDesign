@@ -567,11 +567,13 @@ public class Circuit {
 	}
 
 	public Collection<Component> getAllWithin(Bounds bds) {
+
 		LinkedHashSet<Component> ret = new LinkedHashSet<Component>();
 		for (Component comp : getComponents()) {
 			if (bds.contains(comp.getBounds()))
 				ret.add(comp);
 		}
+		System.out.println(ret);
 		return ret;
 	}
 
