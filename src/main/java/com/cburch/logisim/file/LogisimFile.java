@@ -71,10 +71,10 @@ import com.cburch.logisim.util.StringUtil;
 import com.cburch.logisim.util.UniquelyNamedThread;
 
 public class LogisimFile extends Library implements LibraryEventSource,CircuitListener {
-
+	int count = 0;
 	@Override
 	public void circuitChanged(CircuitEvent event) {
-		System.out.println("circuit has changed");
+		System.out.println("circuit has changed" + (count += 1));
 		int act = event.getAction();
 		if (act == CircuitEvent.ACTION_CHECK_NAME) {
 			String oldname = (String) event.getData();
