@@ -556,11 +556,13 @@ public class Circuit {
 	}
 
 	public Collection<Component> getAllContaining(Location pt, Graphics g) {
+		//System.out.println()
 		LinkedHashSet<Component> ret = new LinkedHashSet<Component>();
 		for (Component comp : getComponents()) {
 			if (comp.contains(pt, g))
 				ret.add(comp);
 		}
+		System.out.println(ret);
 		return ret;
 	}
 
