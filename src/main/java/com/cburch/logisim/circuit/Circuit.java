@@ -577,7 +577,7 @@ public class Circuit {
 		return ret;
 	}
 
-	public Collection<Component> getAllWithin(Bounds bds, Graphics g) {
+	public Collection<Component> getAllWithinWithGraphics(Bounds bds, Graphics g) {
 		LinkedHashSet<Component> ret = new LinkedHashSet<Component>();
 		for (Component comp : getComponents()) {
 			if (bds.contains(comp.getBounds(g)))
