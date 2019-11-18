@@ -310,6 +310,7 @@ public class Canvas extends JPanel implements LocaleListener,
 
 		@Override
 		public void propertyChange(PropertyChangeEvent event) {
+			System.out.println("what is changed? " + event);
 			if (AppPreferences.GATE_SHAPE.isSource(event)
 					|| AppPreferences.SHOW_TICK_RATE.isSource(event) 
 					|| AppPreferences.AntiAliassing.isSource(event)) {
