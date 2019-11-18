@@ -74,6 +74,7 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 
 	@Override
 	public void circuitChanged(CircuitEvent event) {
+		System.out.println("circuit has changed");
 		int act = event.getAction();
 		if (act == CircuitEvent.ACTION_CHECK_NAME) {
 			String oldname = (String) event.getData();
