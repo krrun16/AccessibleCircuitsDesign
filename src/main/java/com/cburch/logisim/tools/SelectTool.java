@@ -536,10 +536,11 @@ public class SelectTool extends Tool {
 			Circuit circuit = canvas.getCircuit();
 			Selection sel = proj.getSelection();
 			Collection<Component> in_sel = sel.getComponentsWithin(bds, g);
-			for (Component comp : circuit.getAllWithin(bds, g)) {
+			for (Component comp : circuit.getAllWithinWithGraphics(bds, g)) {
 				if (!in_sel.contains(comp))
 					sel.add(comp);
 			}
+			System.out.println(sel);
 			Action act = SelectionActions.drop(sel, in_sel);
 			if (act != null) {
 				proj.doAction(act);
