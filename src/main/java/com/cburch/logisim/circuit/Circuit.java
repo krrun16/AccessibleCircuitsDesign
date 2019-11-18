@@ -562,7 +562,7 @@ public class Circuit {
 			if (comp.contains(pt, g))
 				ret.add(comp);
 		}
-		System.out.println(ret);
+		//System.out.println("SOMETHING");
 		return ret;
 	}
 
