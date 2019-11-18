@@ -573,7 +573,7 @@ public class Circuit {
 			if (bds.contains(comp.getBounds()))
 				ret.add(comp);
 		}
-		System.out.println(ret);
+		//System.out.println(ret);
 		return ret;
 	}
 
