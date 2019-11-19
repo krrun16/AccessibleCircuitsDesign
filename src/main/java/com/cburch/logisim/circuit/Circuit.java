@@ -60,6 +60,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.*;
 
+//import java.util.logging.Logger;
+
 public class Circuit {
 	private class EndChangedTransaction extends CircuitTransaction {
 		private Component comp;
@@ -513,6 +515,8 @@ public class Circuit {
 				g_copy = g_new;
 
 				c.draw(context);
+
+				System.out.println(c.getBounds());
 			}
 		} else {
 			for (Component c : comps) {
