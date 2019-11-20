@@ -61,9 +61,10 @@ public class CircuitState implements InstanceData {
 					Wire w = (Wire) comp;
 					markPointAsDirty(w.getEnd0());
 					markPointAsDirty(w.getEnd1());
-					System.out.println(((Wire) comp));
+					System.out.println(("Added " + (Wire) comp));
 				} else {
 					markComponentAsDirty(comp);
+					System.out.println(comp);
 				}
 			}
 
@@ -82,6 +83,7 @@ public class CircuitState implements InstanceData {
 
 				if (comp instanceof Wire) {
 					Wire w = (Wire) comp;
+					System.out.println("Removed " + comp);
 					markPointAsDirty(w.getEnd0());
 					markPointAsDirty(w.getEnd1());
 				} else {
@@ -100,6 +102,7 @@ public class CircuitState implements InstanceData {
 				dirtyComponents.clear();
 				dirtyPoints.clear();
 				causes.clear();
+				System.out.println("Whole circuit was cleared");
 			}
 
 			/* Component changed */
@@ -249,6 +252,7 @@ public class CircuitState implements InstanceData {
 	// public methods
 	//
 	public Circuit getCircuit() {
+		//Circuit.
 		return circuit;
 	}
 
@@ -264,7 +268,13 @@ public class CircuitState implements InstanceData {
 
 	public InstanceState getInstanceState(Component comp) {
 		Object factory = comp.getFactory();
+		int count = 0;
 		if (factory instanceof InstanceFactory) {
+			if (count == 0) {
+				count += 1;
+				System.out.println(comp.getAttributeSet()/*comp.getBounds()*/);
+
+			}
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
 		} else {
 			throw new RuntimeException(
