@@ -516,7 +516,7 @@ public class Circuit {
 
 				c.draw(context);
 
-				System.out.println(c.getBounds());
+				//System.out.println(c);
 			}
 		} else {
 			for (Component c : comps) {
@@ -848,6 +848,7 @@ public class Circuit {
 			AttributeSet attrs = comp.getAttributeSet();
 			if (attrs.containsAttribute(StdAttr.LABEL)) {
 				String CompLabel = attrs.getValue(StdAttr.LABEL);
+				//System.out.println(CompLabel);
 				if (Label.toUpperCase().equals(CompLabel.toUpperCase())) {
 					attrs.setValue(StdAttr.LABEL, "");
 					HaveAChange = true;

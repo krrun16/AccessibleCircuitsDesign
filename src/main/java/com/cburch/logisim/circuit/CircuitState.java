@@ -30,15 +30,6 @@
 
 package com.cburch.logisim.circuit;
 
-import java.util.Collection;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-
 import com.cburch.logisim.circuit.Propagator.SetData;
 import com.cburch.logisim.comp.Component;
 import com.cburch.logisim.comp.ComponentDrawContext;
@@ -54,6 +45,9 @@ import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.std.wiring.Clock;
 import com.cburch.logisim.std.wiring.Pin;
 
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArraySet;
+
 public class CircuitState implements InstanceData {
 
 	private class MyCircuitListener implements CircuitListener {
@@ -67,6 +61,7 @@ public class CircuitState implements InstanceData {
 					Wire w = (Wire) comp;
 					markPointAsDirty(w.getEnd0());
 					markPointAsDirty(w.getEnd1());
+					System.out.println(((Wire) comp));
 				} else {
 					markComponentAsDirty(comp);
 				}
