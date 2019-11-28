@@ -30,22 +30,6 @@
 
 package com.cburch.logisim.tools;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Graphics;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-
-import javax.swing.Icon;
-
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.ReplacementMap;
@@ -76,6 +60,13 @@ import com.cburch.logisim.util.AutoLabel;
 import com.cburch.logisim.util.GraphicsUtil;
 import com.cburch.logisim.util.Icons;
 import com.cburch.logisim.util.StringGetter;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.util.*;
 
 public class SelectTool extends Tool {
 	private static class ComputingMessage implements StringGetter {
@@ -252,6 +243,7 @@ public class SelectTool extends Tool {
 				c.getFactory().drawGhost(context, COLOR_RECT_SELECT,
 						cloc.getX(), cloc.getY(), c.getAttributeSet());
 				gDup.dispose();
+				//System.out.println(c);
 			}
 
 			gBase.setColor(COLOR_RECT_SELECT);
@@ -540,7 +532,8 @@ public class SelectTool extends Tool {
 				if (!in_sel.contains(comp))
 					sel.add(comp);
 			}
-			System.out.println(sel);
+			//System.out.println(sel);
+			//System.out.println(sel);
 			Action act = SelectionActions.drop(sel, in_sel);
 			if (act != null) {
 				proj.doAction(act);
