@@ -58,7 +58,7 @@ public class CircuitEvent {
 	}
 
 	public Circuit getCircuit() {
-		System.out.println("this is my circ");
+		//System.out.println("this is my circ");
 		return circuit;
 	}
 

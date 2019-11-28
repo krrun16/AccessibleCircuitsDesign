@@ -102,7 +102,7 @@ public class CircuitState implements InstanceData {
 				dirtyComponents.clear();
 				dirtyPoints.clear();
 				causes.clear();
-				System.out.println("Whole circuit was cleared");
+				//System.out.println("Whole circuit was cleared");
 			}
 
 			/* Component changed */
@@ -116,7 +116,7 @@ public class CircuitState implements InstanceData {
 					if (base != null) {
 						for (Component comp : comps) {
 							base.checkComponentEnds(CircuitState.this, comp);
-							System.out.println("I am" + comp);
+							//System.out.println("I am" + comp);
 						}
 					}
 				} else {
@@ -275,7 +275,7 @@ public class CircuitState implements InstanceData {
 		if (factory instanceof InstanceFactory) {
 			if (count == 0) {
 				count += 1;
-				System.out.println(comp.getBounds());
+				System.out.println(comp.getFactory().getName().toUpperCase());
 
 			}
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
