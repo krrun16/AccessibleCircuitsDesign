@@ -111,10 +111,12 @@ public class CircuitState implements InstanceData {
 				if (data instanceof Collection) {
 					@SuppressWarnings("unchecked")
 					Collection<Component> comps = (Collection<Component>) data;
+					//System.out.println(comp);
 					markComponentsDirty(comps);
 					if (base != null) {
 						for (Component comp : comps) {
 							base.checkComponentEnds(CircuitState.this, comp);
+							System.out.println("I am" + comp);
 						}
 					}
 				} else {
@@ -125,7 +127,7 @@ public class CircuitState implements InstanceData {
 				}
 			} else if (action == CircuitEvent.ACTION_INVALIDATE) {
 				Component comp = (Component) event.getData();
-				System.out.println(comp);
+				//System.out.println(comp);
 				markComponentAsDirty(comp);
 				// TODO detemine if this should really be missing if (base !=
 				// null) base.checkComponentEnds(CircuitState.this, comp);
