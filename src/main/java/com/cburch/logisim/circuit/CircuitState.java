@@ -125,6 +125,7 @@ public class CircuitState implements InstanceData {
 				}
 			} else if (action == CircuitEvent.ACTION_INVALIDATE) {
 				Component comp = (Component) event.getData();
+				System.out.println(comp);
 				markComponentAsDirty(comp);
 				// TODO detemine if this should really be missing if (base !=
 				// null) base.checkComponentEnds(CircuitState.this, comp);
@@ -272,7 +273,7 @@ public class CircuitState implements InstanceData {
 		if (factory instanceof InstanceFactory) {
 			if (count == 0) {
 				count += 1;
-				System.out.println(comp.getAttributeSet()/*comp.getBounds()*/);
+				System.out.println(comp.getBounds());
 
 			}
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
