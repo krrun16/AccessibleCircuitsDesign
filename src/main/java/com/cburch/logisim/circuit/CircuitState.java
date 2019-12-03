@@ -273,11 +273,10 @@ public class CircuitState implements InstanceData {
 		Object factory = comp.getFactory();
 		int count = 0;
 		if (factory instanceof InstanceFactory) {
-			if (count == 0) {
-				count += 1;
-				System.out.println(comp.getFactory().getName().toUpperCase());
 
-			}
+
+			System.out.println(comp.getFactory().getName().toUpperCase());
+
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
 		} else {
 			throw new RuntimeException(
