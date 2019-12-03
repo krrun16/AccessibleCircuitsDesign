@@ -61,7 +61,7 @@ public class CircuitState implements InstanceData {
 					Wire w = (Wire) comp;
 					markPointAsDirty(w.getEnd0());
 					markPointAsDirty(w.getEnd1());
-					System.out.println(("Added " + w));
+					System.out.println(("Added Wire from " + w.e0.toString() + " to " + w.e1.toString()));
 				} else {
 					markComponentAsDirty(comp);
 					//System.out.println(comp);
@@ -276,6 +276,7 @@ public class CircuitState implements InstanceData {
 
 
 			System.out.println(comp.getFactory().getName().toUpperCase());
+			//System.out.println(comp.getBounds());
 
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
 		} else {
@@ -516,7 +517,7 @@ public class CircuitState implements InstanceData {
 
 	void setWireData(CircuitWires.State data) {
 		wireData = data;
-		System.out.println("Circ State" + data);
+		System.out.println("Circ State " + data.thr_values);
 	}
 
 	boolean tick(int ticks) {
