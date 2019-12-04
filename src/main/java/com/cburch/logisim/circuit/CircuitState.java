@@ -54,10 +54,19 @@ public class CircuitState implements InstanceData {
 		public void circuitChanged(CircuitEvent event) {
 			int action = event.getAction();
 			Set<Component> circComp = event.getCircuit().getComponents();
+			// TODO: check if the wire location is contained by a non-wire component
 			for (Component component : circComp){
 				System.out.println("I have " + component.getFactory().getDisplayName());
 				System.out.println("LocationX: " + component.getLocation().getX());
 				System.out.println("LocationY: " + component.getLocation().getY());
+				if (component instanceof Wire){
+					Wire wire = (Wire) component;
+					Location wireLocation = wire.getLocation();
+				}
+				else{
+					// TODO
+				}
+
 			}
 
 			/* Component was added */
