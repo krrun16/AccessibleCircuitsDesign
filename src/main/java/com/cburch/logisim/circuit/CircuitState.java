@@ -273,9 +273,10 @@ public class CircuitState implements InstanceData {
 		Object factory = comp.getFactory();
 		int count = 0;
 		if (factory instanceof InstanceFactory) {
-
-
-			System.out.println(comp.getFactory().getName().toUpperCase());
+			if (parentComp != null){
+				System.out.println(parentComp.getFactory().getDisplayName());
+			}
+			System.out.println(((InstanceFactory) factory).getDisplayName());
 			//System.out.println(comp.getBounds());
 
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
@@ -288,6 +289,7 @@ public class CircuitState implements InstanceData {
 	public InstanceState getInstanceState(Instance instance) {
 		Object factory = instance.getFactory();
 		if (factory instanceof InstanceFactory) {
+			//System.out.println(((InstanceFactory) factory).getDisplayName());
 			return ((InstanceFactory) factory).createInstanceState(this,
 					instance);
 		} else {
@@ -297,6 +299,7 @@ public class CircuitState implements InstanceData {
 	}
 
 	public CircuitState getParentState() {
+		//System.out.println(parentComp);
 		return parentState;
 	}
 
@@ -348,6 +351,7 @@ public class CircuitState implements InstanceData {
 	// private methods
 	//
 	private void markAllComponentsDirty() {
+		//System.out.println(dirtyComponents);
 		dirtyComponents.addAll(circuit.getNonWires());
 	}
 
