@@ -53,19 +53,28 @@ public class CircuitState implements InstanceData {
 	private class MyCircuitListener implements CircuitListener {
 		public void circuitChanged(CircuitEvent event) {
 			int action = event.getAction();
+			Set<Component> circComp = event.getCircuit().getComponents();
+			for (Component component : circComp){
+				System.out.println("I have " + component.getFactory().getDisplayName());
+				System.out.println("LocationX: " + component.getLocation().getX());
+				System.out.println("LocationY: " + component.getLocation().getY());
+			}
 
 			/* Component was added */
 			if (action == CircuitEvent.ACTION_ADD) {
 				Component comp = (Component) event.getData();
+				//System.out.println("Here is my " + comp.getFactory().getDisplayName());
 				if (comp instanceof Wire) {
 					Wire w = (Wire) comp;
 					markPointAsDirty(w.getEnd0());
 					markPointAsDirty(w.getEnd1());
 					System.out.println(("Added Wire from " + w.e0.toString() + " to " + w.e1.toString()));
 				} else {
+					System.out.println("Here is my " + comp.getFactory().getDisplayName());
 					markComponentAsDirty(comp);
 					//System.out.println(comp);
 				}
+
 			}
 
 			/* Component was removed */
@@ -90,6 +99,7 @@ public class CircuitState implements InstanceData {
 					if (base != null)
 						base.checkComponentEnds(CircuitState.this, comp);
 					dirtyComponents.remove(comp);
+					System.out.println("Removed " + comp.getFactory().getDisplayName());
 				}
 			}
 
@@ -273,10 +283,10 @@ public class CircuitState implements InstanceData {
 		Object factory = comp.getFactory();
 		int count = 0;
 		if (factory instanceof InstanceFactory) {
-			if (parentComp != null){
-				System.out.println(parentComp.getFactory().getDisplayName());
-			}
-			System.out.println(((InstanceFactory) factory).getDisplayName());
+			//if (parentComp != null){
+			//	System.out.println(parentComp.getFactory().getDisplayName());
+			//}
+			//System.out.println(((InstanceFactory) factory).getDisplayName());
 			//System.out.println(comp.getBounds());
 
 			return ((InstanceFactory) factory).createInstanceState(this, comp);
