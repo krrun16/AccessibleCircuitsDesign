@@ -62,7 +62,7 @@ public class CircuitState implements InstanceData {
 				for (Component component2 : circComp){
 					if ((component1 instanceof Wire) && !(component2 instanceof Wire)){
 						System.out.println("Searching");
-						if (component2.contains(component1.getLocation())){
+						if (component1.contains(component2.getLocation())){
 							System.out.println("connected");
 							System.out.println("a connection between wire and " + component2.getFactory().getDisplayName());
 						}

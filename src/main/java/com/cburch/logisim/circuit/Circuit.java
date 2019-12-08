@@ -553,9 +553,12 @@ public class Circuit {
 	public Collection<Component> getAllContaining(Location pt) {
 		LinkedHashSet<Component> ret = new LinkedHashSet<Component>();
 		for (Component comp : getComponents()) {
-			if (comp.contains(pt))
+			if (comp.contains(pt)) {
 				ret.add(comp);
+				System.out.println(comp.getFactory().getDisplayName());
+			}
 		}
+
 		return ret;
 	}
 
