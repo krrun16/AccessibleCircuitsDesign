@@ -63,10 +63,16 @@ public class CircuitState implements InstanceData {
 					Wire wire = (Wire) component;
 					Location wireLocation = wire.getLocation();
 				}
-				else{
-					// TODO
-				}
 
+			}
+			for (Component comp1 : circComp){
+				for (Component comp2: circComp){
+					if (comp1 instanceof Wire && !(comp2 instanceof Wire)){
+						if (comp2.contains(comp1.getLocation())){
+							System.out.println(comp2.getFactory().getDisplayName());
+						}
+					}
+				}
 			}
 
 			/* Component was added */
