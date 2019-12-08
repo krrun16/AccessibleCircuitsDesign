@@ -55,25 +55,23 @@ public class CircuitState implements InstanceData {
 			int action = event.getAction();
 			Set<Component> circComp = event.getCircuit().getComponents();
 			// TODO: check if the wire location is contained by a non-wire component
-			for (Component component : circComp){
-				System.out.println("I have " + component.getFactory().getDisplayName());
-				System.out.println("LocationX: " + component.getLocation().getX());
-				System.out.println("LocationY: " + component.getLocation().getY());
-				if (component instanceof Wire){
-					Wire wire = (Wire) component;
-					Location wireLocation = wire.getLocation();
+			for (Component component1 : circComp){
+				System.out.println("I have " + component1.getFactory().getDisplayName());
+				System.out.println("LocationX: " + component1.getLocation().getX());
+				System.out.println("LocationY: " + component1.getLocation().getY());
+				for (Component component2 : circComp){
+					if ((component1 instanceof Wire) && !(component2 instanceof Wire)){
+						System.out.println("Searching");
+						if (component2.contains(component1.getLocation())){
+							System.out.println("connected");
+							System.out.println("a connection between wire and " + component2.getFactory().getDisplayName());
+						}
+					}
+
 				}
 
 			}
-			for (Component comp1 : circComp){
-				for (Component comp2: circComp){
-					if (comp1 instanceof Wire && !(comp2 instanceof Wire)){
-						if (comp2.contains(comp1.getLocation())){
-							System.out.println(comp2.getFactory().getDisplayName());
-						}
-					}
-				}
-			}
+
 
 			/* Component was added */
 			if (action == CircuitEvent.ACTION_ADD) {
@@ -546,7 +544,7 @@ public class CircuitState implements InstanceData {
 
 	void setWireData(CircuitWires.State data) {
 		wireData = data;
-		System.out.println("Circ State " + data.thr_values);
+		//System.out.println("Circ State " + data.thr_values.toString());
 	}
 
 	boolean tick(int ticks) {
