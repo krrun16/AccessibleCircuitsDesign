@@ -34,6 +34,7 @@ import com.cburch.logisim.circuit.Propagator.SetData;
 import com.cburch.logisim.comp.Component;
 import com.cburch.logisim.comp.ComponentDrawContext;
 import com.cburch.logisim.comp.ComponentState;
+import com.cburch.logisim.comp.EndData;
 import com.cburch.logisim.data.BitWidth;
 import com.cburch.logisim.data.Location;
 import com.cburch.logisim.data.Value;
@@ -62,10 +63,14 @@ public class CircuitState implements InstanceData {
 				for (Component component2 : circComp){
 					if ((component1 instanceof Wire) && !(component2 instanceof Wire)){
 						System.out.println("Searching");
-						if (component1.contains(component2.getLocation())){
-							System.out.println("connected");
-							System.out.println("a connection between wire and " + component2.getFactory().getDisplayName());
+						for (EndData endData : component2.getEnds()){
+							Location endLoc = endData.getLocation();
+							if (component1.endsAt(endLoc)){
+								System.out.println("connected");
+								System.out.println("a connection between wire and " + component2.getFactory().getDisplayName());
+							}
 						}
+
 					}
 
 				}
