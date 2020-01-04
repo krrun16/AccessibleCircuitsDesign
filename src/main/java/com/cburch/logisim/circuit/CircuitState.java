@@ -61,15 +61,27 @@ public class CircuitState implements InstanceData {
 				System.out.println("LocationX: " + component1.getLocation().getX());
 				System.out.println("LocationY: " + component1.getLocation().getY());
 				for (Component component2 : circComp){
-					if ((component1 instanceof Wire) && !(component2 instanceof Wire)){
+					for (Component component3 : circComp){
+					if ((component1 instanceof Wire) && !(component2 instanceof Wire) && !(component3 instanceof Wire)) {
 						System.out.println("Searching");
-						for (EndData endData : component2.getEnds()){
-							Location endLoc = endData.getLocation();
-							if (component1.endsAt(endLoc)){
-								System.out.println("connected");
-								System.out.println("a connection between wire and " + component2.getFactory().getDisplayName());
+						for (EndData endDataComp2 : component2.getEnds()) {
+							Location endLocComp2 = endDataComp2.getLocation();
+							for (EndData endDataComp3 : component3.getEnds()){
+								Location endLocComp3 = endDataComp3.getLocation();
+								//Location endLoc2 = endData.getLocation();
+								if (component1.endsAt(endLocComp2)) {
+									//System.out.println("connected");
+									//System.out.println("a connection between " + component1.getFactory().getDisplayName() + " and " + component2.getFactory().getDisplayName());
+								}
+								if (component1.endsAt(endLocComp3) && component2 != component3) {
+									System.out.println(component2.getFactory().getDisplayName() + " is connected with " + component3.getFactory().getDisplayName());
+								}
 							}
+
+
+
 						}
+					}
 
 					}
 
