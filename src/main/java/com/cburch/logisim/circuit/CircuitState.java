@@ -56,39 +56,48 @@ public class CircuitState implements InstanceData {
 			int action = event.getAction();
 			Set<Component> circComp = event.getCircuit().getComponents();
 			// TODO: check if the wire location is contained by a non-wire component
-			for (Component component1 : circComp){
-				System.out.println("I have " + component1.getFactory().getDisplayName());
-				System.out.println("LocationX: " + component1.getLocation().getX());
-				System.out.println("LocationY: " + component1.getLocation().getY());
-				for (Component component2 : circComp){
+			/*for (Component component1 : circComp){
+				//System.out.println("I have " + component1.getFactory().getDisplayName());
+				//System.out.println("LocationX: " + component1.getLocation().getX());
+				//System.out.println("LocationY: " + component1.getLocation().getY());
+				for (Component componentWire : circComp){
 					for (Component component3 : circComp){
-					if ((component1 instanceof Wire) && !(component2 instanceof Wire) && !(component3 instanceof Wire)) {
-						System.out.println("Searching");
-						for (EndData endDataComp2 : component2.getEnds()) {
-							Location endLocComp2 = endDataComp2.getLocation();
+					if (!(component1 instanceof Wire) && !(componentWire instanceof Wire) && !(component3 instanceof Wire)) {
+						//System.out.println("Searching");
+						for (EndData endDataComp1 : componentWire.getEnds()) {
+							Location endLocComp1 = endDataComp1.getLocation();
 							for (EndData endDataComp3 : component3.getEnds()){
 								Location endLocComp3 = endDataComp3.getLocation();
-								//Location endLoc2 = endData.getLocation();
-								if (component1.endsAt(endLocComp2)) {
-									//System.out.println("connected");
-									//System.out.println("a connection between " + component1.getFactory().getDisplayName() + " and " + component2.getFactory().getDisplayName());
-								}
-								if (component1.endsAt(endLocComp3) && component2 != component3) {
-									System.out.println(component2.getFactory().getDisplayName() + " is connected with " + component3.getFactory().getDisplayName());
+								if (componentWire.endsAt(endLocComp3) && component1 != component3) {
+									System.out.println(component1.getFactory().getDisplayName() + " is connected with " + component3.getFactory().getDisplayName());
 								}
 							}
-
-
-
 						}
 					}
-
 					}
-
 				}
+			}*/
+			for (Component wire : circComp){
+				for (Component comp1 : circComp){
+					for (Component comp2 : circComp){
+						if (wire instanceof Wire && !(comp1 instanceof Wire) && !(comp2 instanceof Wire)){
+							for (EndData end1: comp1.getEnds()){
+								Location loc1 = end1.getLocation();
 
+								for (EndData end2 : comp2.getEnds()) {
+									Location loc2 = end2.getLocation();
+									if (wire.endsAt(loc1) && wire.endsAt(loc2) && comp1 != comp2){
+
+										System.out.println(comp1.getFactory().getDisplayName() + " is connected with " + comp2.getFactory().getDisplayName());
+										//System.out.println(comp1.getAttributeSet().getValue(Attributes.forBoolean(
+										//		"output", Strings.getter("pinOutputAttr"))));
+									}
+								}
+							}
+						}
+					}
+				}
 			}
-
 
 			/* Component was added */
 			if (action == CircuitEvent.ACTION_ADD) {
