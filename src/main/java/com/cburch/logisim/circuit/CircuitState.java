@@ -79,7 +79,11 @@ public class CircuitState implements InstanceData {
 			}*/
 			for (Component wire : circComp){
 				for (Component comp1 : circComp){
-					System.out.println(comp1.getFactory().getClass().getName());
+					//System.out.println(comp1.getFactory().getClass().getName());
+					/*if (comp1.getFactory() instanceof Pin){
+						Pin pin1 = (Pin)comp1.getFactory();
+						System.out.println(pin1.isInputPin(Instance.getInstanceFor(comp1)));
+					}*/
 					for (Component comp2 : circComp){
 						if (wire instanceof Wire && !(comp1 instanceof Wire) && !(comp2 instanceof Wire)){
 							for (EndData end1: comp1.getEnds()){
@@ -88,8 +92,27 @@ public class CircuitState implements InstanceData {
 								for (EndData end2 : comp2.getEnds()) {
 									Location loc2 = end2.getLocation();
 									if (wire.endsAt(loc1) && wire.endsAt(loc2) && comp1 != comp2){
+										if (comp1.getFactory() instanceof Pin){
+											Pin pin1 = (Pin)comp1.getFactory();
+											if (pin1.isInputPin(Instance.getInstanceFor(comp1)))
+												System.out.println ("Input pin connected to " + comp2.getFactory().getDisplayName());
 
-										System.out.println(comp1.getFactory().getDisplayName() + " is connected with " + comp2.getFactory().getDisplayName());
+											else
+												System.out.println ("Output pin connected to " + comp2.getFactory().getDisplayName());
+
+											//System.out.println(pin1.isInputPin(Instance.getInstanceFor(comp1)));
+										}
+										else if (comp2.getFactory() instanceof Pin){
+											Pin pin2 = (Pin)comp2.getFactory();
+											if (pin2.isInputPin(Instance.getInstanceFor(comp2)))
+												System.out.println ( comp1.getFactory().getDisplayName() + " is connected to input pin");
+
+											else
+												System.out.println (comp1.getFactory().getDisplayName() + " is connected to output pin");
+
+										}
+										else
+											System.out.println(comp1.getFactory().getDisplayName() + " is connected to " + comp2.getFactory().getDisplayName());
 										//System.out.println(comp1.getAttributeSet().getValue(Attributes.forBoolean(
 										//		"output", Strings.getter("pinOutputAttr"))));
 									}
