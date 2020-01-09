@@ -79,6 +79,7 @@ public class CircuitState implements InstanceData {
 			}*/
 			for (Component wire : circComp){
 				for (Component comp1 : circComp){
+					System.out.println(comp1.getClass().getClass().getName());
 					for (Component comp2 : circComp){
 						if (wire instanceof Wire && !(comp1 instanceof Wire) && !(comp2 instanceof Wire)){
 							for (EndData end1: comp1.getEnds()){
