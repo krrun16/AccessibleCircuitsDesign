@@ -30,16 +30,11 @@
 
 package com.cburch.logisim.std.gates;
 
-import java.awt.Font;
-import java.util.List;
-
-import com.cburch.logisim.data.AbstractAttributeSet;
-import com.cburch.logisim.data.Attribute;
-import com.cburch.logisim.data.AttributeOption;
-import com.cburch.logisim.data.Attributes;
-import com.cburch.logisim.data.BitWidth;
-import com.cburch.logisim.data.Direction;
+import com.cburch.logisim.data.*;
 import com.cburch.logisim.instance.StdAttr;
+
+import java.awt.*;
+import java.util.List;
 
 class GateAttributes extends AbstractAttributeSet {
 	static final int MAX_INPUTS = 32;
@@ -79,6 +74,11 @@ class GateAttributes extends AbstractAttributeSet {
 			.forOption("out", Strings.getter("gateOutputAttr"),
 					new AttributeOption[] { OUTPUT_01, OUTPUT_0Z, OUTPUT_Z1 });
 
+	// TODO: create actual values
+	public static final Attribute<AttributeOption> PARENT_VAL = Attributes
+			.forOption("parent", Strings.getter("stdParentAttr"),
+					new AttributeOption[] { OUTPUT_01, OUTPUT_0Z, OUTPUT_Z1 });
+
 	Direction facing = Direction.EAST;
 	BitWidth width = BitWidth.ONE;
 	AttributeOption size = SIZE_MEDIUM;
@@ -88,6 +88,7 @@ class GateAttributes extends AbstractAttributeSet {
 	AttributeOption xorBehave;
 	String label = "";
 	Font labelFont = StdAttr.DEFAULT_LABEL_FONT;
+	String parentVal = "hello world";
 
 	GateAttributes(boolean isXor) {
 		xorBehave = isXor ? XOR_ONE : null;
@@ -163,7 +164,12 @@ class GateAttributes extends AbstractAttributeSet {
 			} else {
 				negated &= ~(1 << index);
 			}
-		} else {
+		} else if (attr == StdAttr.PARENT){
+
+
+		}
+
+		else {
 			throw new IllegalArgumentException("unrecognized argument");
 		}
 		fireAttributeValueChanged(attr, value, attr == StdAttr.LABEL ? (V) oldvalue : null);

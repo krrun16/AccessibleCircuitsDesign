@@ -71,6 +71,6 @@ public interface StdAttr {
 			"labelvisible", Strings.getter("stdLabelVisibility")); 
 	
 	public static final Attribute<String> DUMMY = Attributes.forHidden();
-	public static final Attribute<Integer> PARENT= Attributes.forInteger("Index", Strings.getter("stdParentAttr"));
-	public static final Attribute<Integer> CHILDREN = Attributes.forInteger("Index", Strings.getter("stdChildrenAttr"));
+	public static final Attribute<String> PARENT= Attributes.forString("Index", Strings.getter("stdParentAttr"));
+	public static final Attribute<String> CHILDREN = Attributes.forString("Index", Strings.getter("stdChildrenAttr"));
 }
