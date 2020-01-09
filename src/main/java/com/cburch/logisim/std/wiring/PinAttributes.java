@@ -30,14 +30,14 @@
 
 package com.cburch.logisim.std.wiring;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.cburch.logisim.circuit.RadixOption;
 import com.cburch.logisim.comp.EndData;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.BitWidth;
 import com.cburch.logisim.instance.StdAttr;
+
+import java.util.Arrays;
+import java.util.List;
 
 class PinAttributes extends ProbeAttributes {
 	public static PinAttributes instance = new PinAttributes();
@@ -45,7 +45,7 @@ class PinAttributes extends ProbeAttributes {
 	private static final List<Attribute<?>> ATTRIBUTES = Arrays
 			.asList(new Attribute<?>[] { StdAttr.FACING, Pin.ATTR_TYPE,
 					StdAttr.WIDTH, Pin.ATTR_TRISTATE, Pin.ATTR_PULL,
-					StdAttr.LABEL, StdAttr.LABEL_FONT,
+					StdAttr.LABEL, StdAttr.LABEL_FONT, StdAttr.PARENT, StdAttr.CHILDREN,
 					RadixOption.ATTRIBUTE });
 
 	BitWidth width = BitWidth.ONE;

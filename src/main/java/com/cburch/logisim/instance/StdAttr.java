@@ -30,14 +30,9 @@
 
 package com.cburch.logisim.instance;
 
-import java.awt.Color;
-import java.awt.Font;
+import com.cburch.logisim.data.*;
 
-import com.cburch.logisim.data.Attribute;
-import com.cburch.logisim.data.AttributeOption;
-import com.cburch.logisim.data.Attributes;
-import com.cburch.logisim.data.BitWidth;
-import com.cburch.logisim.data.Direction;
+import java.awt.*;
 
 public interface StdAttr {
 	public static final Attribute<Direction> FACING = Attributes.forDirection(
@@ -76,4 +71,6 @@ public interface StdAttr {
 			"labelvisible", Strings.getter("stdLabelVisibility")); 
 	
 	public static final Attribute<String> DUMMY = Attributes.forHidden();
+	public static final Attribute<Integer> PARENT= Attributes.forInteger("Index", Strings.getter("stdParentAttr"));
+	public static final Attribute<Integer> CHILDREN = Attributes.forInteger("Index", Strings.getter("stdChildrenAttr"));
 }

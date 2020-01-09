@@ -30,17 +30,17 @@
 
 package com.cburch.logisim.std.gates;
 
-import java.util.AbstractList;
-
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.Direction;
 import com.cburch.logisim.instance.StdAttr;
+
+import java.util.AbstractList;
 
 class GateAttributeList extends AbstractList<Attribute<?>> {
 	private static final Attribute<?>[] BASE_ATTRIBUTES = { StdAttr.FACING,
 			StdAttr.WIDTH, GateAttributes.ATTR_SIZE,
 			GateAttributes.ATTR_INPUTS, GateAttributes.ATTR_OUTPUT,
-			StdAttr.LABEL, StdAttr.LABEL_FONT, };
+			StdAttr.LABEL, StdAttr.LABEL_FONT, StdAttr.PARENT, StdAttr.CHILDREN};
 
 	private GateAttributes attrs;
 
