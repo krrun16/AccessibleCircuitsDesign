@@ -133,7 +133,15 @@ public class CircuitState implements InstanceData {
 					markPointAsDirty(w.getEnd1());
 					System.out.println(("Added Wire from " + w.e0.toString() + " to " + w.e1.toString()));
 				} else {
-					System.out.println("Here is my " + comp.getFactory().getDisplayName());
+					if (comp.getFactory() instanceof Pin) {
+						Pin pin = (Pin) comp.getFactory();
+						if (pin.isInputPin(Instance.getInstanceFor(comp)))
+							System.out.println("Here is my input pin");
+
+						else
+							System.out.println("Here is my output pin");
+					}
+					else System.out.println("Here is my " + comp.getFactory().getDisplayName());
 					markComponentAsDirty(comp);
 					//System.out.println(comp);
 				}
