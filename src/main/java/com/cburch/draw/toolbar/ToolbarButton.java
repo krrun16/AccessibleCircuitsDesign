@@ -91,7 +91,7 @@ class ToolbarButton extends JComponent implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		if (item != null && item.isSelectable()) {
 			toolbar.setPressed(this);
-			System.out.println("This is " + item.getToolTip());
+			//System.out.println("This is " + item.getToolTip());
 		}
 	}
 
@@ -99,7 +99,7 @@ class ToolbarButton extends JComponent implements MouseListener {
 		if (toolbar.getPressed() == this) {
 			toolbar.getToolbarModel().itemSelected(item);
 			toolbar.setPressed(null);
-			System.out.println(item.getToolTip() + " is released");
+			//System.out.println(item.getToolTip() + " is released");
 		}
 	}
 
